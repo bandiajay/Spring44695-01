@@ -1,8 +1,10 @@
 /*
- * TreeSet with Comparable.
+ * TreeSet with Comparable and equals() method.
   
  */
 package setsdemo_01;
+
+import java.util.Objects;
 
 /**
  *
@@ -42,6 +44,35 @@ public class Building implements Comparable<Building>{
     public int compareTo(Building arg0) {
         return buildingName.compareTo(arg0.buildingName);
         //return Integer.compare(buildingNo, arg0.buildingNo);
+    }
+
+    @Override
+    public int hashCode() {
+        int hash = 5;
+        hash = 29 * hash + Objects.hashCode(this.buildingName);
+        hash = 29 * hash + this.buildingNo;
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Building other = (Building) obj;
+        if (this.buildingNo != other.buildingNo) {
+            return false;
+        }
+        if (!Objects.equals(this.buildingName, other.buildingName)) {
+            return false;
+        }
+        return true;
     }
 
 }
