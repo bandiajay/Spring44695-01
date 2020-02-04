@@ -28,22 +28,24 @@ public class EmployeeDeptMapping {
         Employee e3 = new Employee(123, "Bell", "Scott", 18);
         Employee e4 = new Employee(876, "Corson", "Mark", 76);
         Employee e5 = new Employee(67, "Mardis", "Lori", 65);
-
+        Employee e6 = new Employee(67, "Mardis", "Lori", 65);
+                
         Department d1 = new Department(44, "CSIS");
         Department d2 = new Department(34, "Geology");
         Department d3 = new Department(55, "Library");
 
-        HashMap<Employee, Department> employeeMap = new HashMap<>();
+       // HashMap<Employee, Department> employeeMap = new HashMap<>();
         
-        //TreeMap<Employee, Department> employeeMap = new TreeMap<>();
+        TreeMap<Employee, Department> employeeMap = new TreeMap<>(new EmployeeComparator());
         employeeMap.put(e1, d1);
         employeeMap.put(e2, d1);
-        employeeMap.put(e3, d1);
+        employeeMap.put(e3, d2);
         employeeMap.put(e4, d2);
         employeeMap.put(e5, d3);
         employeeMap.put(e5, d2);
+        employeeMap.put(e6, d1);
         
-        System.out.println(employeeMap.entrySet());
+        //System.out.println(employeeMap.entrySet());
         System.out.println(employeeMap.size());
         System.out.println(employeeMap);
                 

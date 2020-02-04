@@ -98,8 +98,6 @@ public class Employee implements Comparable<Employee>{
         return true;
     }
 
- 
-    
     @Override
     public int compareTo(Employee o) {
         //return this.lastName.compareTo(o.getLastName());
