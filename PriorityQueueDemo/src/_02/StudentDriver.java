@@ -24,7 +24,7 @@ public class StudentDriver {
         Student s4 = new Student(13, "Dane", 3.54);
         Student s5 = new Student(10, "Ernie", 2.00);
 
-        PriorityQueue<Student> students = new PriorityQueue<>();
+        PriorityQueue<Student> students = new PriorityQueue<>(2);
         //PriorityQueue<Student> students = new PriorityQueue<>(new StudentComparator());
 
         students.add(s1);

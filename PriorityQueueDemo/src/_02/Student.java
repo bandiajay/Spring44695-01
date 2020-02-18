@@ -52,30 +52,30 @@ public class Student implements Comparable<Student>{
         return  ID + "-" + name + "-" + gpa;
     }
 
-    @Override
-    public int hashCode() {
-        int hash = 7;
-        hash = 97 * hash + this.ID;
-        return hash;
-    }
+//    @Override
+//    public int hashCode() {
+//        int hash = 7;
+//        hash = 97 * hash + this.ID;
+//        return hash;
+//    }
 
-    @Override
-    public boolean equals(Object obj) {
-        if (this == obj) {
-            return true;
-        }
-        if (obj == null) {
-            return false;
-        }
-        if (getClass() != obj.getClass()) {
-            return false;
-        }
-        final Student other = (Student) obj;
-        if (this.ID != other.ID) {
-            return false;
-        }
-        return true;
-    }
+//    @Override
+//    public boolean equals(Object obj) {
+//        if (this == obj) {
+//            return true;
+//        }
+//        if (obj == null) {
+//            return false;
+//        }
+//        if (getClass() != obj.getClass()) {
+//            return false;
+//        }
+//        final Student other = (Student) obj;
+//        if (this.ID != other.ID) {
+//            return false;
+//        }
+//        return true;
+//    }
 
     @Override
     public int compareTo(Student o) {
@@ -87,8 +87,4 @@ public class Student implements Comparable<Student>{
             return -1;
     }
 
-    
-    
-   
-            
 }
