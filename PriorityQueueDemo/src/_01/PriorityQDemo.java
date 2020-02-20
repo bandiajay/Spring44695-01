@@ -19,7 +19,7 @@ public class PriorityQDemo {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        PriorityQueue<String> pq = new PriorityQueue<String>();
+        PriorityQueue<String> pq = new PriorityQueue<String>(2);
         pq.add("English");
         pq.add("Mandarin");
         pq.add("Telugu");
