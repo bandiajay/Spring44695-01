@@ -19,6 +19,8 @@ public class Registration implements Runnable {
     private int numStudents;
     private int numberSeatesRegistered;
 
+    private static ReentrantLock regisLock = new ReentrantLock();
+
     public Registration(String batchName, int numStudents) {
         this.batchName = batchName;
         this.numStudents = numStudents;
@@ -27,11 +29,21 @@ public class Registration implements Runnable {
 
     @Override
     public void run() {
-        for (int i = 1; i < numStudents; i++) {
-            Date now = new Date();
-            totalSeats--;
-            numberSeatesRegistered++;
-            System.out.println("Seat registered for student# " + i + " of " + batchName + " at " + now);
+        for (int i = 1; i <= numStudents; i++) {
+            regisLock.lock();
+            try {
+                if (totalSeats <= 0) {
+                    throw new SeatUnavailableException("Zero seats!");
+                }
+                Date now = new Date();
+                totalSeats--;
+                numberSeatesRegistered++;
+                System.out.println("Seat registered for student# " + i + " of " + batchName + " at " + now);
+            } catch (SeatUnavailableException e) {
+                System.out.println(e.getMessage());
+            } finally {
+                regisLock.unlock();
+            }
         }
         System.out.println("Total # of students from " + batchName + "registered: " + numberSeatesRegistered);
     }//end run
